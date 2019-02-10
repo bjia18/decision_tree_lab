@@ -142,8 +142,7 @@ def mdclassify(observation, tree):
             return mdclassify(observation, branch)
 
 
-def buildtree(rows, scoref=entropy,
-              min_gain=0, min_samples=0):
+def buildtree(rows, scoref=variance,min_gain=0, min_samples=0):
     if len(rows) == 0:
         return decisionnode()
     current_score = scoref(rows)

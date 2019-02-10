@@ -20,12 +20,18 @@ def main(col_names=None):
 
     print("Total number of records = ",len(data))
     tree = dtree_build.buildtree(data, min_gain =0.01, min_samples = 5)
-
     dtree_build.printtree(tree, '', col_names)
 
     max_tree_depth = dtree_build.max_depth(tree)
     print("max number of questions=" + str(max_tree_depth))
 
+    csv_predict="predict.csv"
+    predict=[]
+    with open(csv_file_name) as csvpredict:
+        CSVp = csv.reader(csv_predict, delimiter=',')
+        for row in CSVp:
+            predict.append(list(row))
+    print(dtree_build.classify(predict,tree))
     if len(sys.argv) > 2: # draw option specified
         import dtree_draw
         dtree_draw.drawtree(tree, jpeg=csv_file_name+'.jpg')
