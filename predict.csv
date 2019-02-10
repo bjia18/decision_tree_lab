@@ -1,4 +1,0 @@
-rank,ethnicity,gender,language,age,cls_students,cls_level,bty_avg,prof_eval,course_eval
-teaching,minority,male,english,30,21,lower,2.5,2,1
-teaching,"not minority",female,english,60,17,lower,2.3,4,4.5
-tenure,"not minority",male,english,65,11,lower,2.1,3,2.5
