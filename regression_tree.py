@@ -70,7 +70,8 @@ def entropy(rows):
 
 
 def variance(rows):
-    if len(rows) == 0: return 0
+    if len(rows) == 0: 
+        return 0
     data = [float(row[len(row) - 1]) for row in rows]
     mean = sum(data) / len(data)
     variance = sum([(d - mean) ** 2 for d in data]) / len(data)
@@ -82,15 +83,12 @@ def variance(rows):
 
 def prediction(leaf_labels):
     total = 0
-    result = {}
+    result = 0
     for label, count in leaf_labels.items():
         total += count
-        result[label] = count
+        result+=count*float(label)
 
-    for label, val in result.items():
-        result[label] = str(int(result[label]/total * 100))+"%"
-
-    return result
+    return round(float(result/total),2)
 
 
 def classify(observation, tree):
